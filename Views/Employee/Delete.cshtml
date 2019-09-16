@@ -1,0 +1,27 @@
+﻿@model k_love.Models.Employee
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<h3 style="color:orange">Are you sure you want to delete @Model.Name?</h3>
+<div>
+
+    <hr />
+    @*<dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.DeptName)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.DeptName)
+            </dd>
+        </dl>*@
+    <br />
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EmpId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to Employees</a>
+    </form>
+</div>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<k_love.Models.Employee>
+
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<div style="width:100%; margin:0 auto;">
+    <h2>Employees</h2>
+    <br />
+    <p>
+        <a asp-action="Create" class="btn btn-outline-success">Create New</a>
+    </p>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr style="font: bold; color:darkblue;">
+                <td>Name</td>
+
+                <td>Role</td>
+
+                <td>Location</td>
+
+                <td>Age</td>
+
+                <td>Salary</td>
+                <td></td>
+            </tr>
+        </thead>
+        @foreach (Employee emp in @Model)
+    {
+        <tr>
+            <td>
+                @emp.Name
+            </td>
+
+            <td>
+                @emp.Role
+            </td>
+            <td>
+                @emp.Location
+            </td>
+            <td>
+                @emp.Age
+            </td>
+            <td>
+                @emp.Salary
+            </td>
+
+
+            <td width="20%">
+                <a asp-action="Edit" asp-route-id="@emp.EmpId" class="btn btn-info" style="margin-left: 18px;" >Edit</a> 
+                <a asp-action="Delete" asp-route-id="@emp.EmpId" class="btn btn-danger float-right">Delete</a>
+            </td>
+        </tr>
+    }
+
+    </table>
+</div>

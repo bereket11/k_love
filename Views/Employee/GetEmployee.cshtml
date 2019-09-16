@@ -1,0 +1,19 @@
+﻿@model List<k_love.Models.Employee>;
+
+
+
+@{
+    ViewData["Title"] = "Employee";
+}
+
+<h2>K-Love Employees</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@foreach (Employee emp in @Model)
+{
+    @emp.Name
+    @emp.Age
+}
