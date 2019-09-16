@@ -36,8 +36,13 @@ namespace k_love
             var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<LoveContext>(options => options.UseNpgsql(sqlConnectionString));
-
-
+            
+            //For local database 
+            //services.AddDbContext<LoveContext>(options => options.UseInMemoryDatabase(databaseName: "K-Love")));
+            
+            // Using local sqlite (a light sql database)/ which can be browsed by third party libraries
+           // services.AddDbContext<LoveContext>(options => options.UseSqlServer(sqlConnectionString));
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
